@@ -20,7 +20,7 @@
   var force = {'true': true, 'false': false}
 
   return {
-    bind: function bind(el) {
+    bind: function(el) {
       var event = el.getAttribute('togg-event')
       if (!event) throw new Error('Missing [togg-event] value')
 
