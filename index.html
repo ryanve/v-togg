@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="utf-8">
+<title>v-togg: Vue UI directive</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="UI interaction behavior directive">
+<meta name="author" content="Ryan Van Etten">
+<link rel="stylesheet" href="style.css">
+
+<header class="banner">
+  <h1><a href="http://ryanve.github.io/v-togg">v-togg</a></h1>
+  <div class="menu">
+    <a class="clunk button" href="https://github.com/ryanve/v-togg">Github</a>
+    <a class="clunk button" href="https://www.npmjs.com/package/v-togg">npm</a>
+  </div>
+  <div class="blurb">
+    v-togg is a Vue UI directive that uses events to toggle classes, attributes, properties.
+    It helps developers separate UI interaction from application code and therefore reduces prototyping and engineering time because UI components can be created separately from how their functionality is hooked up.
+  </div>
+</header>
+
+<h2>Interactive Examples</h2>
+<ul class="list" id="vue">
+  <li id="own" class="group">
+    <h3 class="group__title">Click to toggle own class</h3>
+    <fieldset>
+      <button class="button" v-togg togg-event="click" togg-class="button--toggled" togg-scope>Toggle</button>
+    </fieldset>
+  </li>
+  <li id="targets" class="group" togg-scope>
+    <h3 class="group__title">Click to toggle classes on targets</h3>
+    <fieldset>
+      <button class="button" v-togg togg-event="click" togg-class="button--toggled">Toggle</button>
+    </fieldset>
+    <figure class="demo" togg-class="demo--toggled">target</figure>
+  </li>
+  <li id="named" class="group">
+    <h3 class="group__title">Click to toggle classes in named scope</h3>
+    <fieldset>
+      <button class="button" v-togg togg-event="click" togg-scope="47" togg-class="button--toggled">Toggle</button>
+    </fieldset>
+    <figure class="demo" togg-class="demo--toggled" togg-scope="47">target</figure>
+  </li>
+  <li id="enable" class="group">
+    <h3 class="group__title">Click to enable/disable input</h3>
+    <fieldset togg-scope>
+      <button class="button" togg-class="button--toggled" v-togg togg-event="click">
+        <span togg-attr="hidden">Enable</span>
+        <span togg-attr="hidden" hidden>Disable</span>
+      </button>
+      <input class="input button width--50" togg-prop="disabled" disabled>
+    </fieldset>
+  </li>
+  <li id="change" class="group">
+    <h3 class="group__title">Check/uncheck to toggle attribute</h3>
+    <fieldset togg-scope>
+      <label class="button" togg-class="button--toggled"><input type="checkbox" v-togg togg-event="change"> Change</label>
+      <span togg-attr="hidden" hidden>checked</span>
+      <span togg-attr="hidden">unchecked</span>
+    </fieldset>
+  </li>
+  <li id="force" class="group" togg-scope>
+    <h3 class="group__title">Click to force state</h3>
+    <fieldset>
+      <button class="button" v-togg togg-event="click" togg-class="button--toggled" togg-state="true">True</button>
+      <button class="button" v-togg togg-event="click" togg-class="button--toggled" togg-state="false">False</button>
+    </fieldset>
+    <figure class="demo" togg-class="demo--toggled">target</figure>
+  </li>
+  <li id="bubble" class="group">
+    <h3 class="group__title">Click to trigger custom event</h3>
+    <fieldset>
+      <button class="button" togg-class="button--toggled" v-togg togg-event="click" togg-trigger="bubble" togg-scope>Trigger</button>
+    </fieldset>
+    <figure class="demo js-timestamp">expect timestamp here</figure>
+  </li>
+  <li id="empty" class="group" togg-scope>
+    <h3 class="group__title">Click to empty target</h3>
+    <fieldset>
+      <button class="button" togg-class="button--toggled" v-togg togg-event="click">Empty</button>
+    </fieldset>
+    <figure class="demo" togg-method="empty" contenteditable>target target target target target target target target target target</figure>
+  </li>
+</ul>
+
+<footer>
+  <b>Made with care by <a href="https://github.com/ryanve/">@ryanve</a>.</b>
+  Also <a href="https://ryanve.github.io/togg/">available as Angular directive</a>.
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js"></script>
+<script src="https://unpkg.com/vue@2.2.2/dist/vue.js"></script>
+<script src="togg.js"></script>
+<script src="test.js"></script>

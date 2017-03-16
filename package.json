@@ -1,0 +1,43 @@
+{
+  "name": "v-togg",
+  "version": "0.6.0",
+  "description": "Vue UI toggle interaction directive",
+  "main": "togg.js",
+  "scripts": {
+    "lint": "eslint . --ext .js",
+    "preversion": "npm test",
+    "pretest": "npm run lint",
+    "test": "node test.js"
+  },
+  "author": "Ryan Van Etten",
+  "license": "MIT",
+  "homepage": "https://ryanve.github.io/v-togg/",
+  "keywords": [
+    "vue",
+    "vue-directive",
+    "directives",
+    "directive",
+    "interaction",
+    "prototyping",
+    "behavior",
+    "toggles",
+    "toggle",
+    "states",
+    "click",
+    "ui-directive",
+    "ui-component",
+    "ui-state",
+    "ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanve/v-togg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryanve/v-togg/issues"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "open": "0.0.5"
+  }
+}
